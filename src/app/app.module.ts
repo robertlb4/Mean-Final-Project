@@ -8,12 +8,14 @@ import { AppComponent } from './app.component';
 import { ROUTING } from "./app.routing";
 import { HomeComponent } from "./home/home.component";
 import { AboutComponent } from "./about/about.component";
+import { InputFormComponent } from './input-form/input-form.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         AboutComponent,
-        HomeComponent
+        HomeComponent,
+        InputFormComponent
     ],
     imports: [
         BrowserAnimationsModule,

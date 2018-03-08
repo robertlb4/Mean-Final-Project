@@ -1,0 +1,57 @@
+<div id="form">
+<form #inputForm="ngForm" (ngSubmit)="onSubmit()" [hidden]="submitted">
+    <section class="form-block">
+        <label>Please enter your information</label>
+        <div class="form-group">
+            <label for="dob">Date of Birth</label>
+            <label for="dob"
+                aria-haspopup="true"
+                role="tooltip"
+                class="tooltip tooltip-validation tooltip-md"
+                [class.invalid]="firstNameInput.invalid && (firstNameInput.dirty || firstNameInput.touched)">
+                <input type="date" id="dob" placeholder="Enter date of birth"
+                    required
+                    name="dob"
+                    [(ngModel)]="model.firstName"
+                    #firstNameInput="ngModel">
+                <span class="tooltip-content">
+                    Date of Birth is Required.
+                </span>
+            </label>
+        </div>
+        <div class="form-group">
+            <label for="ssiamount">Amount Paid to Social Security</label>
+            <label for="ssiamount"
+                aria-haspopup="true"
+                role="tooltip"
+                class="tooltip tooltip-validation tooltip-md"
+                [class.invalid]="lastNameInput.invalid && (lastNameInput.dirty || lastNameInput.touched)">
+                <input type="currency" id="ssiamount" placeholder="Enter the amount paid to social security"
+                    required
+                    name="lastName"
+                    [(ngModel)]="model.lastName"
+                    #lastNameInput="ngModel">
+                <span class="tooltip-content">
+                    Last Name is Required.
+                </span>
+            </label>
+        </div>
+        <div class="form-group ">
+            <label for="gender">Gender</label>
+            <div class="select">
+                <select id="gender"
+                    name="employeeType"
+                    [(ngModel)]="model.employeeType">
+                    <!--<option value="Default">Select your gender</option>-->
+                    <!--<option *ngFor="let type of gender"  [value]="type">{{type}}</option>-->
+                    <option value="Default">Select your gender</option>
+                    <option>Female</option>
+                    <option>Male</option>
+                </select>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit"
+            [disabled]="employeeForm.form.invalid">Get your benefit amount</button>
+    </section>
+</form>
+</div>
