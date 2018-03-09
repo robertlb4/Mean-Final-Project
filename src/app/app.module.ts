@@ -9,6 +9,7 @@ import { ROUTING } from "./app.routing";
 import { HomeComponent } from "./home/home.component";
 import { AboutComponent } from "./about/about.component";
 import { InputFormComponent } from './input-form/input-form.component';
+import { InputinfoService } from './inputinfo.service'
 
 @NgModule({
     declarations: [
@@ -25,7 +26,7 @@ import { InputFormComponent } from './input-form/input-form.component';
         ClarityModule,
         ROUTING
     ],
-    providers: [],
+    providers: [InputinfoService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
