@@ -26,7 +26,7 @@ export class InputFormComponent implements OnInit {
   }
   
   onClick(): void {
-    console.log(this.calc.calcBenefit(this.inputInfo.user.dob, this.inputInfo.user.ssiAmount, this.inputInfo.user.income));
+    console.log(this.calc.calcBenefit(this.inputInfo.user.dob, this.inputInfo.user.ssiAmount, this.inputInfo.user.income, this.statement));
     
   }
 
