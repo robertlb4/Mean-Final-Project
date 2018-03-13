@@ -4,13 +4,17 @@ import { Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class InputinfoService {
-    
+  
+  startAge = [62, 63, 64, 65, 66, 67, 68, 69, 70];
+  
   url: string = "https://example.com";
     
   user: any = {
     
     
   };
+  
+  monthlyBen: number[] = [];
   
  
   constructor(private http: HttpClient) { }

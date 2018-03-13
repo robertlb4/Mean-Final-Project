@@ -109,3 +109,22 @@
             [disabled]="inputForm.form.invalid">Get your benefit amount</button>
     </section>
 </form>
+
+<div *ngIf="inputInfo.monthlyBen.length > 0">
+    <table>
+        <tr>
+            <th>Retirement Age</th>
+            <th>Monthly Benefit</th>
+            <th>Total at 75</th>
+            <th>Total at 85</th>
+            <th>Total at 95</th>
+        </tr>
+        <tr *ngFor="let benefit of inputInfo.monthlyBen; let i=index">
+            <td>{{ inputInfo.startAge[i] }}</td>
+            <td>{{ benefit }}</td>
+            <td>{{ benefit  * (75 -  inputInfo.startAge[i]) }}</td>
+            <td>{{ benefit  * (85 -  inputInfo.startAge[i]) }}</td>
+            <td>{{ benefit  * (95 -  inputInfo.startAge[i]) }}</td>
+        </tr>
+    </table>
+</div>

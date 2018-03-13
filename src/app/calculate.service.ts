@@ -13,7 +13,7 @@ export class CalculateService {
       let monthlyIncome = income / 12
       let fra;
       let fullBen;
-      let monthlyBen: any[] = []
+     // let monthlyBen: any[] = []
       
       
       if (dobYear <= 1937) {
@@ -33,50 +33,45 @@ export class CalculateService {
         }
       
       // 5% discount for every year prior to fra.  .4666667/month
+      // 8& increase per year past fra .667/month
       //ssi primary insurance calculation 2018
       
       if (statement) {
           startAge.map((x)=> {
-              if (x < fra) {
-                  let factor = 1 - ((fra - (x * 12)) * .0041667)
-                  monthlyBen.push(Math.round(income * factor));
-              }
-              else if (x = fra){
-                  monthlyBen.push(Math.round(income));
-              }
-              else {
-                  let factor = 1 + (((x * 12) - fra) * .00667)
-                  monthlyBen.push(Math.round(income * factor))
-              }
+            if (x < fra) {
+                let factor = 1 - ((fra - (x * 12)) * .0041667)
+                this.inputInfo.monthlyBen.push(Math.round(income * factor));
+            }
+            else if (x = fra){
+                this.inputInfo.monthlyBen.push(Math.round(income));
+             }
+            else {
+                let factor = 1 + (((x * 12) - fra) * .00667)
+                this.inputInfo.monthlyBen.push(Math.round(income * factor))
+            }
           })
       }
       else {
-          fullBen = monthlyIncome > 5397 ? 805.5 + ((monthlyIncome - 895) * .32)
+        fullBen = monthlyIncome > 5397 ? 805.5 + ((monthlyIncome - 895) * .32)
                     + ((monthlyIncome - 6292) * .15) : 805.5 + ((monthlyIncome - 895) * .32);
           
-          fullBen = fullBen > 
+          //fullBen = fullBen > 
           
-          startAge.map((x)=> {
-              if (x < fra) {
-                  let factor = 1 - ((fra - (x * 12)) * .0041667)
-                  monthlyBen.push(Math.round(fullBen * factor));
-              }
-              else if (x = fra){
-                  monthlyBen.push(Math.round(fullBen));
-              }
-              else {
-                  let factor = 1 + (((x * 12) - fra) * .00667)
-                  monthlyBen.push(Math.round(fullBen * factor))
-              }
+        startAge.map((x)=> {
+            if (x < fra) {
+                let factor = 1 - ((fra - (x * 12)) * .0041667)
+                this.inputInfo.monthlyBen.push(Math.round(fullBen * factor));
+            }
+            else if (x = fra){
+                this.inputInfo.monthlyBen.push(Math.round(fullBen));
+            }
+            else {
+                let factor = 1 + (((x * 12) - fra) * .00667)
+                this.inputInfo.monthlyBen.push(Math.round(fullBen * factor))
+            }
           })
       }
       
-      return monthlyBen;
+      //return monthlyBen;
   }
-  
-  calcStatementBenefit (pia) {
-      
-  }
-  
-
 }
