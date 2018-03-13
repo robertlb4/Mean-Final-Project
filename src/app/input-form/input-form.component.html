@@ -1,4 +1,24 @@
-<div id="form">
+<div  *ngIf="statementQ" id ="form">
+    <form #haveInfo="ngForm">
+        <section class="form-block">
+            <div class="form-group">
+                <label>Do you have you <a href="https://www.ssa.gov/myaccount/statement.html">Social Security Statement?</a></label>
+                <div class="radio-inline">
+                <input type="radio" name="gridRadios1" id="checkrads_11" 
+                (click)="statementYes()">
+                <label for="checkrads_11">Yes</label>
+                </div>
+                <div class="radio-inline">
+                <input type="radio" name="gridRadios1" id="checkrads_12" 
+                (click)="statementNo()">
+                <label for="checkrads_12">No</label>
+                </div>
+            </div>
+        </section>
+    </form>
+</div>
+
+<div id="form" *ngIf="!statementQ">
 <form #inputForm="ngForm">
     <section class="form-block">
         <label>Please enter your information</label>
@@ -20,36 +40,70 @@
             </label>
         </div>
         <div class="form-group">
-            <label for="ssiamount">Amount Paid to Social Security</label>
-            <label for="ssiamount"
+            <label for="ssiAmount">Total Social Security Taxes Paid</label>
+            <label for="ssiAmount"
                 aria-haspopup="true"
                 role="tooltip"
                 class="tooltip tooltip-validation tooltip-md"
-                [class.invalid]="lastNameInput.invalid && (lastNameInput.dirty || lastNameInput.touched)">
-                <input type="currency" id="ssiamount" placeholder="Enter the amount paid to social security"
+                [class.invalid]="ssiInput.invalid && (ssiInput.dirty || ssiInput.touched)">
+                <input type="currency" id="ssiAmount" placeholder="Enter amount"
                     required
-                    name="ssiamount"
-                    [(ngModel)]="inputInfo.user.ssiamount"
+                    name="ssiAmount"
+                    [(ngModel)]="inputInfo.user.ssiAmount"
                     #ssiInput="ngModel">
                 <span class="tooltip-content">
                     Amount is Required.
                 </span>
             </label>
         </div>
-        <div class="form-group ">
-            <label for="gender">Gender</label>
-            <div class="select">
-                <select id="gender"
-                    name="gender"
-                    [(ngModel)]="inputInfo.user.gender">
-                    <!--<option value="Default">Select your gender</option>-->
-                    <!--<option *ngFor="let type of gender"  [value]="type">{{type}}</option>-->
-                    <option value="Default">Select your gender</option>
-                    <option>Female</option>
-                    <option>Male</option>
-                </select>
-            </div>
+        <div class="form-group" *ngIf="!statement">
+            <label for="avgIncome">Average Yearly Income</label>
+            <label for="avgIncome"
+                aria-haspopup="true"
+                role="tooltip"
+                class="tooltip tooltip-validation tooltip-md"
+                [class.invalid]="incomeInput.invalid && (incomeInput.dirty || incomeInput.touched)">
+                <input type="currency" id="avgIncome" placeholder="Enter average income"
+                    required
+                    name="avgIncome"
+                    [(ngModel)]="inputInfo.user.avgIncome"
+                    #incomeInput="ngModel">
+                <span class="tooltip-content">
+                    Amount is Required.
+                </span>
+            </label>
         </div>
+        <div class="form-group" *ngIf="statement">
+            <label for="monthlyBen">Your Monthly Payment(from top of statement)</label>
+            <label for="monthlyBen"
+                aria-haspopup="true"
+                role="tooltip"
+                class="tooltip tooltip-validation tooltip-md"
+                [class.invalid]="benefitInput.invalid && (benefitInput.dirty || benefitInput.touched)">
+                <input type="currency" id="monthlyBen" placeholder="Enter monthly payment"
+                    required
+                    name="monthlyBen"
+                    [(ngModel)]="inputInfo.user.monthlyBen"
+                    #benefitInput="ngModel">
+                <span class="tooltip-content">
+                    Amount is Required.
+                </span>
+            </label>
+        </div>
+        <!--<div class="form-group ">-->
+        <!--    <label for="gender">Gender</label>-->
+        <!--    <div class="select">-->
+        <!--        <select id="gender"-->
+        <!--            name="gender"-->
+        <!--            [(ngModel)]="inputInfo.user.gender">-->
+        <!--            <option value="Default">Select your gender</option>-->
+        <!--            <option *ngFor="let type of gender"  [value]="type">{{type}}</option>-->
+        <!--            <option value="Default">Select your gender</option>-->
+        <!--            <option>Female</option>-->
+        <!--            <option>Male</option>-->
+        <!--        </select>-->
+        <!--    </div>-->
+        <!--</div>-->
         <button class="btn btn-primary" type="submit"
             (click)="onClick()"
             [disabled]="inputForm.form.invalid">Get your benefit amount</button>

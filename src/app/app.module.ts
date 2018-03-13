@@ -10,6 +10,8 @@ import { HomeComponent } from "./home/home.component";
 import { AboutComponent } from "./about/about.component";
 import { InputFormComponent } from './input-form/input-form.component';
 import { InputinfoService } from './inputinfo.service'
+import { CalculateService } from './calculate.service'
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     declarations: [
@@ -24,9 +26,12 @@ import { InputinfoService } from './inputinfo.service'
         FormsModule,
         HttpModule,
         ClarityModule,
-        ROUTING
+        ROUTING,
+        HttpClientModule
     ],
-    providers: [InputinfoService],
+    providers: [InputinfoService,
+    CalculateService
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {
