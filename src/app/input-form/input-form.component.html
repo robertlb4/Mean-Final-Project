@@ -46,7 +46,7 @@
                 role="tooltip"
                 class="tooltip tooltip-validation tooltip-md"
                 [class.invalid]="ssiInput.invalid && (ssiInput.dirty || ssiInput.touched)">
-                <input type="currency" id="ssiAmount" placeholder="Enter amount"
+                <input type="number" min="0" step="100" id="avgIncome" placeholder="Enter amount"
                     required
                     name="ssiAmount"
                     [(ngModel)]="inputInfo.user.ssiAmount"
@@ -63,10 +63,10 @@
                 role="tooltip"
                 class="tooltip tooltip-validation tooltip-md"
                 [class.invalid]="incomeInput.invalid && (incomeInput.dirty || incomeInput.touched)">
-                <input type="currency" id="avgIncome" placeholder="Enter average income"
+                <input type="number" min="0" step="100" id="avgIncome" placeholder="Enter average annual income"
                     required
                     name="avgIncome"
-                    [(ngModel)]="inputInfo.user.avgIncome"
+                    [(ngModel)]="inputInfo.user.income"
                     #incomeInput="ngModel">
                 <span class="tooltip-content">
                     Amount is Required.
@@ -80,10 +80,10 @@
                 role="tooltip"
                 class="tooltip tooltip-validation tooltip-md"
                 [class.invalid]="benefitInput.invalid && (benefitInput.dirty || benefitInput.touched)">
-                <input type="currency" id="monthlyBen" placeholder="Enter monthly payment"
+                <input type="number" value="1000" min="0" step="100" id="monthlyBen" placeholder="Enter monthly payment"
                     required
                     name="monthlyBen"
-                    [(ngModel)]="inputInfo.user.monthlyBen"
+                    [(ngModel)]="inputInfo.user.income"
                     #benefitInput="ngModel">
                 <span class="tooltip-content">
                     Amount is Required.

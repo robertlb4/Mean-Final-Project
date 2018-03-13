@@ -18,17 +18,16 @@ export class InputFormComponent implements OnInit {
   statementYes() {
     this.statement = true;
     this.statementQ = false;
-    console.log(this.statement)
   }
   
   statementNo() {
     this.statement = false;
     this.statementQ = false;
-    console.log(this.statementQ)
   }
   
   onClick(): void {
-    //this.calc.calcBenefit(this.inputInfo.user.dob, this.inputInfo.user.ssiAmount, this.inputInfo.user.gender);
+    console.log(this.calc.calcBenefit(this.inputInfo.user.dob, this.inputInfo.user.ssiAmount, this.inputInfo.user.income));
+    
   }
 
   ngOnInit() {

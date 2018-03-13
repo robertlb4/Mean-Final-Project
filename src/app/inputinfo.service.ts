@@ -7,7 +7,7 @@ export class InputinfoService {
     
   url: string = "https://example.com";
     
-  user = {
+  user: any = {
     
     
   };
