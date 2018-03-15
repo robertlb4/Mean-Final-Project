@@ -13,6 +13,7 @@ import { InputinfoService } from './inputinfo.service'
 import { CalculateService } from './calculate.service'
 import { HttpClientModule } from '@angular/common/http';
 
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -27,7 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
         HttpModule,
         ClarityModule,
         ROUTING,
-        HttpClientModule
+        HttpClientModule,
     ],
     providers: [InputinfoService,
     CalculateService
