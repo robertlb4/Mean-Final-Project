@@ -13,7 +13,7 @@ export class CalculateService {
       let monthlyIncome = income / 12
       let fra;
       let fullBen;
-     // let monthlyBen: any[] = []
+      let monthlyBen: any[] = []
       
       
       if (dobYear <= 1937) {
@@ -39,15 +39,15 @@ export class CalculateService {
       if (statement) {
           startAge.map((x)=> {
             if (x < fra) {
-                let factor = 1 - ((fra - (x * 12)) * .0041667)
-                this.inputInfo.monthlyBen.push(Math.round(income * factor));
+                let factor = 1 - ((fra - (x * 12)) * .0041667);
+                monthlyBen.push(Math.round(income * factor));
             }
             else if (x = fra){
-                this.inputInfo.monthlyBen.push(Math.round(income));
+                monthlyBen.push(Math.round(income));
              }
             else {
-                let factor = 1 + (((x * 12) - fra) * .00667)
-                this.inputInfo.monthlyBen.push(Math.round(income * factor))
+                let factor = 1 + (((x * 12) - fra) * .00667);
+                monthlyBen.push(Math.round(income * factor))
             }
           })
       }
@@ -55,21 +55,23 @@ export class CalculateService {
         fullBen = monthlyIncome > 5397 ? 805.5 + ((monthlyIncome - 895) * .32)
                     + ((monthlyIncome - 6292) * .15) : 805.5 + ((monthlyIncome - 895) * .32);
           
-          //fullBen = fullBen > 
+        fullBen = fullBen > 2778 ? 2778 : fullBen;
           
         startAge.map((x)=> {
             if (x < fra) {
                 let factor = 1 - ((fra - (x * 12)) * .0041667)
-                this.inputInfo.monthlyBen.push(Math.round(fullBen * factor));
+                monthlyBen.push(Math.round(fullBen * factor));
             }
             else if (x = fra){
-                this.inputInfo.monthlyBen.push(Math.round(fullBen));
+                monthlyBen.push(Math.round(fullBen));
             }
             else {
                 let factor = 1 + (((x * 12) - fra) * .00667)
-                this.inputInfo.monthlyBen.push(Math.round(fullBen * factor))
+                monthlyBen.push(Math.round(fullBen * factor))
             }
           })
+          
+          this.inputInfo.user.monthlyBen = monthlyBen;
       }
       
       //return monthlyBen;

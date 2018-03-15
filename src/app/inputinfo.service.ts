@@ -14,7 +14,7 @@ export class InputinfoService {
     
   };
   
-  monthlyBen: number[] = [];
+  //monthlyBen: number[] = [];
   
  
   constructor(private http: HttpClient) { }

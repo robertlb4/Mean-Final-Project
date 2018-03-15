@@ -110,7 +110,8 @@
     </section>
 </form>
 
-<div *ngIf="inputInfo.monthlyBen.length > 0">
+
+<div *ngIf="inputInfo.user.monthlyBen">
     <table>
         <tr>
             <th>Retirement Age</th>
@@ -119,7 +120,7 @@
             <th>Total at 85</th>
             <th>Total at 95</th>
         </tr>
-        <tr *ngFor="let benefit of inputInfo.monthlyBen; let i=index">
+        <tr *ngFor="let benefit of inputInfo.use.monthlyBen; let i=index">
             <td>{{ inputInfo.startAge[i] }}</td>
             <td>{{ benefit }}</td>
             <td>{{ benefit  * (75 -  inputInfo.startAge[i]) }}</td>
