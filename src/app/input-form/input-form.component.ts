@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { InputinfoService } from '../inputinfo.service'
 import { CalculateService } from '../calculate.service'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-input-form',
@@ -13,7 +14,7 @@ export class InputFormComponent implements OnInit {
   
   statement: boolean;
   
-  constructor(private inputInfo: InputinfoService, private calc: CalculateService) { }
+  constructor(private inputInfo: InputinfoService, private calc: CalculateService, private router: Router) { }
   
   statementYes() {
     this.statement = true;
@@ -28,6 +29,7 @@ export class InputFormComponent implements OnInit {
   onClick(): void {
     this.calc.calcBenefit(this.inputInfo.user.dob, this.inputInfo.user.ssiAmount, this.inputInfo.user.income, this.statement);
     console.log(this.inputInfo.user.monthlyBen);
+    this.router.navigate([`/table`]);
     
   }
 

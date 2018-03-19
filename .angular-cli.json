@@ -19,6 +19,7 @@
             "mobile": false,
             "styles": [
                 "../node_modules/@clr/icons/clr-icons.min.css",
+                "../node_modules/@clr/ui/clr-ui-dark.min.css",
                 "../node_modules/@clr/ui/clr-ui.min.css",
                 "styles.css"
             ],

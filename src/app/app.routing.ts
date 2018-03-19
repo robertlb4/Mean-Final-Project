@@ -9,12 +9,18 @@ import { Routes, RouterModule } from '@angular/router';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { InputFormComponent } from './input-form/input-form.component';
+import { TableComponent } from './table/table.component';
+import { LogInComponent } from './log-in/log-in.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 
 export const ROUTES: Routes = [
-    {path: '', redirectTo: 'home', pathMatch: 'full'},
+    {path: '', redirectTo: 'log-in', pathMatch: 'full'},
+    {path: 'log-in', component: LogInComponent},
+    {path: 'sign-up', component: SignUpComponent},
     {path: 'home', component: InputFormComponent},
-    {path: 'about', component: AboutComponent}
+    {path: 'about', component: AboutComponent},
+    {path: 'table', component: TableComponent}
 ];
 
 export const ROUTING: ModuleWithProviders = RouterModule.forRoot(ROUTES);
