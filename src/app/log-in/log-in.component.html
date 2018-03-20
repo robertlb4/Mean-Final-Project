@@ -1,13 +1,17 @@
 <div class="login-wrapper">
-    <form class="login">
+    <form #login="ngForm" class="login">
         <label class="title">
             <h3 class="welcome">Welcome to the</h3>
             SSI Calculator
             <h5 class="hint">Use your E-mail to sign in or create one now</h5>
         </label>
         <div class="login-group">
-            <input class="Email" type="email" id="Email" placeholder="Enter your E-mail">
-            <input class="password" type="password" id="password" placeholder="Password">
+            <input class="email" type="email" id="Email" name="email" 
+            placeholder="Enter your E-mail"
+            [(ngModel)]="inputInfo.user.email">
+            <input class="password" type="password" id="password" name="password"
+            placeholder="Password"
+            [(ngModel)]="inputInfo.user.password">
             <div class="checkbox">
                 <input type="checkbox" id="rememberme">
                 <label for="rememberme">
@@ -17,7 +21,8 @@
             <div class="error active">
                 Invalid user name or password
             </div>
-            <button type="submit" class="btn btn-primary">NEXT</button>
+            <button type="submit" class="btn btn-primary"
+            (click)="log()">NEXT</button>
             <div>
                 <span>Don't have an account?</span><a href="/sign-up" class="signup">register</a>
             </div>

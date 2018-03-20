@@ -12,7 +12,7 @@ import { InputFormComponent } from './input-form/input-form.component';
 import { TableComponent } from './table/table.component';
 import { LogInComponent } from './log-in/log-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
-
+import { ChartComponent } from './chart/chart.component';
 
 export const ROUTES: Routes = [
     {path: '', redirectTo: 'log-in', pathMatch: 'full'},
@@ -20,7 +20,8 @@ export const ROUTES: Routes = [
     {path: 'sign-up', component: SignUpComponent},
     {path: 'home', component: InputFormComponent},
     {path: 'about', component: AboutComponent},
-    {path: 'table', component: TableComponent}
+    {path: 'table', component: TableComponent},
+    {path: 'chart', component: ChartComponent}
 ];
 
 export const ROUTING: ModuleWithProviders = RouterModule.forRoot(ROUTES);
