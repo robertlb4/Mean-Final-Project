@@ -8,10 +8,10 @@
         <div class="login-group">
             <input class="email" type="email" id="Email" name="email" 
             placeholder="Enter your E-mail"
-            [(ngModel)]="inputInfo.user.email">
+            [(ngModel)]="_user.email">
             <input class="password" type="password" id="password" name="password"
             placeholder="Password"
-            [(ngModel)]="inputInfo.user.password">
+            [(ngModel)]="_user.password">
             <div class="checkbox">
                 <input type="checkbox" id="rememberme">
                 <label for="rememberme">
@@ -22,7 +22,7 @@
                 Invalid user name or password
             </div>
             <button type="submit" class="btn btn-primary"
-            (click)="log()">NEXT</button>
+            (click)="onLogIn()">NEXT</button>
             <div>
                 <span>Don't have an account?</span><a href="/sign-up" class="signup">register</a>
             </div>

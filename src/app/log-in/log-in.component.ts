@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { InputinfoService } from '../inputinfo.service'
+import { UserService } from '../user.service'
 
 @Component({
   selector: 'app-log-in',
@@ -8,13 +9,14 @@ import { InputinfoService } from '../inputinfo.service'
 })
 export class LogInComponent implements OnInit {
 
-  constructor(private inputInfo: InputinfoService) { }
+  constructor(private inputInfo: InputinfoService, private _user: UserService) { }
 
   ngOnInit() {
   }
   
-  log() {
-    console.log(this.inputInfo.user.email + this.inputInfo.user.password)
-  }
+  onLogIn() {
+    this._user.logIn()
+    .subscribe(result => console.log(result));
+  } 
 
 }

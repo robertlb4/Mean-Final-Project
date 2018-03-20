@@ -15,11 +15,6 @@ export class InputinfoService {
     },
     
   };
-  "firstName": "Rick",
-  "lastname": "Grimes",
-  "email": "test@gmail.com",
-  "password": "abc123"
-  //monthlyBen: number[] = [];
   
  
   constructor(private http: HttpClient) { }
