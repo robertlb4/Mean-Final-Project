@@ -17,6 +17,7 @@ import { TableComponent } from './table/table.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { LogInComponent } from './log-in/log-in.component';
 import { ChartComponent } from './chart/chart.component';
+import { UserService } from './user.service'
 
 
 @NgModule({
@@ -40,8 +41,10 @@ import { ChartComponent } from './chart/chart.component';
         HttpClientModule,
         ChartsModule,
     ],
-    providers: [InputinfoService,
-    CalculateService
+    providers: [
+    InputinfoService,
+    CalculateService,
+    UserService
     ],
     bootstrap: [AppComponent]
 })

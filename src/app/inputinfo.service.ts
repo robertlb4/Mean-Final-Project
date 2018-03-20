@@ -10,10 +10,15 @@ export class InputinfoService {
   url: string = "https://example.com";
     
   user: any = {
-    
+    reginfo: {
+      
+    },
     
   };
-  
+  "firstName": "Rick",
+  "lastname": "Grimes",
+  "email": "test@gmail.com",
+  "password": "abc123"
   //monthlyBen: number[] = [];
   
  
