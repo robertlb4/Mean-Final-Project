@@ -31,6 +31,8 @@ export class InputFormComponent implements OnInit {
     this.inputInfo.sendChartData();
     this.router.navigate([`/chart`]);
   }
+  
+  
 
   ngOnInit() {
   }
