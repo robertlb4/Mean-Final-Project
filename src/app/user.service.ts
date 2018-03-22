@@ -19,5 +19,13 @@ export class UserService {
   logIn() {
       return this._http.post(this.baseUrl + 'login', {email: this.email, password: this.password})
   }
+  
+  saveResult (userInfo) {
+      let userId = sessionStorage.getItem('userId');
+      let token = sessionStorage.getItem('token');
+      console.log(userInfo);
+      console.log(typeof(userInfo.fra));
+      return this._http.post(this.baseUrl + userId + '/ssireturns?access_token=' + token, userInfo)
+  }
 
 }

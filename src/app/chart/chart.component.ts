@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { InputinfoService } from '../inputinfo.service';
+import { UserService } from '../user.service'
 
 @Component({
   selector: 'app-chart',
@@ -10,7 +11,7 @@ export class ChartComponent implements OnInit {
   
   chart = [];
 
-  constructor(private inputInfo: InputinfoService) { }
+  constructor(private inputInfo: InputinfoService, private _user: UserService) { }
 
   ngOnInit() {
     
@@ -176,6 +177,11 @@ export class ChartComponent implements OnInit {
       }
     }
     this.lineChartData = _lineChartData;
+  }
+  
+  clickSave () {
+    this._user.saveResult({fra: 67, monthlybenefit: 2000})
+    .subscribe(result => console.log(result + " success!"))
   }
  
   // events
