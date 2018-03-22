@@ -23,13 +23,67 @@ export class ChartComponent implements OnInit {
   }
 
   public lineChartData:Array<any> = [
-    {data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A'},
-    {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B'},
-    {data: [18, 48, 77, 9, 100, 27, 40], label: 'Series C'}
-  ];
-  public lineChartLabels:Array<any> = [65, ];
+    {data: [
+      this.inputInfo.user.monthlyBen[0]*12,
+      this.inputInfo.user.monthlyBen[0]*60,
+      this.inputInfo.user.monthlyBen[0]*120,
+      this.inputInfo.user.monthlyBen[0]*180,
+      this.inputInfo.user.monthlyBen[0]*240,
+      this.inputInfo.user.monthlyBen[0]*300,
+      this.inputInfo.user.monthlyBen[0]*360,
+      this.inputInfo.user.monthlyBen[0]*420,
+      this.inputInfo.user.monthlyBen[0]*480
+      ], 
+      label: 'Retire at 62'
+    },
+    {data: [
+      this.inputInfo.user.monthlyBen[1]*12,
+      this.inputInfo.user.monthlyBen[1]*60,
+      this.inputInfo.user.monthlyBen[1]*120,
+      this.inputInfo.user.monthlyBen[1]*180,
+      this.inputInfo.user.monthlyBen[1]*240,
+      this.inputInfo.user.monthlyBen[1]*300,
+      this.inputInfo.user.monthlyBen[1]*360,
+      this.inputInfo.user.monthlyBen[1]*420,
+      this.inputInfo.user.monthlyBen[1]*480
+      ],  
+      label: 'Retire at 63'
+    },
+    {data: [
+      this.inputInfo.user.monthlyBen[2]*12,
+      this.inputInfo.user.monthlyBen[2]*60,
+      this.inputInfo.user.monthlyBen[2]*120,
+      this.inputInfo.user.monthlyBen[2]*180,
+      this.inputInfo.user.monthlyBen[2]*240,
+      this.inputInfo.user.monthlyBen[2]*300,
+      this.inputInfo.user.monthlyBen[2]*360,
+      this.inputInfo.user.monthlyBen[2]*420,
+      this.inputInfo.user.monthlyBen[2]*480
+      ],  
+      label: 'Retire at 64'
+    }];
+    
+  public lineChartLabels:Array<any> = [60, 65, 70, 75, 80, 85, 90, 95, 100];
+  
+  
+  
   public lineChartOptions:any = {
-    responsive: true
+    responsive: true,
+    scales: {
+      yAxes: [{
+        scaleLabel: {
+          display: true,
+          labelString: 'Total Amount Earned'
+        }
+      }],
+      
+      xAxes: [{
+        scaleLabel: {
+          display: true,
+          labelString: "Retirement Age"
+        }
+      }]
+    }     
   };
   public lineChartColors:Array<any> = [
     { // grey
@@ -73,7 +127,7 @@ export class ChartComponent implements OnInit {
  
   // events
   public chartClicked(e:any):void {
-    console.log(e);
+    console.log();
   }
  
   public chartHovered(e:any):void {

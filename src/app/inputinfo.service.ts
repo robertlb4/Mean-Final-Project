@@ -15,9 +15,13 @@ export class InputinfoService {
     },
     
   };
-  
+  chartData: any[] = [];
  
   constructor(private http: HttpClient) { }
+  
+  sendChartData(){
+    
+  }
   
   retrieveProfile (profile) {
       return this.http.get(this.url + profile)
