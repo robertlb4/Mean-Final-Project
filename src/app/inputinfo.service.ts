@@ -6,6 +6,7 @@ import { Observable} from 'rxjs/Observable';
 export class InputinfoService {
   
   startAge = [62, 63, 64, 65, 66, 67, 68, 69, 70];
+  chartXAxis= [60, 65, 70, 75, 80, 85, 90, 95, 100];
   
   url: string = "https://example.com";
     
@@ -23,18 +24,19 @@ export class InputinfoService {
     this.chartData=this.user.monthlyBen
     .map((e, i) => {
       return {data: [
-        e*12,
-        e*60,
-        e*120,
-        e*180,
-        e*240,
-        e*300,
-        e*360,
-        e*420,
-        e*480
+        Math.max(0, e*((this.chartXAxis[0] - this.startAge[i])*12)),
+        Math.max(0, e*((this.chartXAxis[1] - this.startAge[i])*12)),
+        Math.max(0, e*((this.chartXAxis[2] - this.startAge[i])*12)),
+        Math.max(0, e*((this.chartXAxis[3] - this.startAge[i])*12)),
+        Math.max(0, e*((this.chartXAxis[4] - this.startAge[i])*12)),
+        Math.max(0, e*((this.chartXAxis[5] - this.startAge[i])*12)),
+        Math.max(0, e*((this.chartXAxis[6] - this.startAge[i])*12)),
+        Math.max(0, e*((this.chartXAxis[7] - this.startAge[i])*12)),
+        Math.max(0, e*((this.chartXAxis[8] - this.startAge[i])*12)),
       ],
       label: 'Retire at' + this.startAge[i]  
-      };})
+      };
+    })
       console.log(this.chartData);
   }
   

@@ -23,6 +23,8 @@ export class ChartComponent implements OnInit {
   }
 
   public lineChartData:Array<any> = this.inputInfo.chartData;
+  
+  public lineChartLabels:Array<any> = [60, 65, 70, 75, 80, 85, 90, 95, 100];
     // {data: [
     //   this.inputInfo.user.monthlyBen[0]*12,
     //   this.inputInfo.user.monthlyBen[0]*60,
@@ -63,7 +65,7 @@ export class ChartComponent implements OnInit {
     //   label: 'Retire at 64'
     // }];
     
-  public lineChartLabels:Array<any> = [60, 65, 70, 75, 80, 85, 90, 95, 100];
+  
   
   
   
@@ -74,6 +76,9 @@ export class ChartComponent implements OnInit {
         scaleLabel: {
           display: true,
           labelString: 'Total Amount Earned'
+        },
+        ticks: {
+          min: 100
         }
       }],
       
@@ -92,7 +97,9 @@ export class ChartComponent implements OnInit {
       pointBackgroundColor: 'rgba(148,159,177,1)',
       pointBorderColor: '#fff',
       pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+      pointHoverBorderColor: 'rgba(148,159,177,0.8)',
+      fill: false,
+      lineTension: 0
     },
     { // dark grey
       backgroundColor: 'rgba(77,83,96,0.2)',
@@ -101,7 +108,8 @@ export class ChartComponent implements OnInit {
       pointBorderColor: '#fff',
       pointHoverBackgroundColor: '#fff',
       pointHoverBorderColor: 'rgba(77,83,96,1)',
-      hidden: true
+      hidden: true,
+      fill: false
     },
     { // grey
       backgroundColor: 'rgba(148,159,177,0.2)',
@@ -110,24 +118,8 @@ export class ChartComponent implements OnInit {
       pointBorderColor: '#fff',
       pointHoverBackgroundColor: '#fff',
       pointHoverBorderColor: 'rgba(148,159,177,0.8)',
-      hidden: true
-    },
-    { // grey
-      backgroundColor: 'rgba(148,159,177,0.2)',
-      borderColor: 'rgba(148,159,177,1)',
-      pointBackgroundColor: 'rgba(148,159,177,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
-    },
-    { // grey
-      backgroundColor: 'rgba(148,159,177,0.2)',
-      borderColor: 'rgba(148,159,177,1)',
-      pointBackgroundColor: 'rgba(148,159,177,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(148,159,177,0.8)',
-      hidden: true
+      hidden: true,
+      fill: false
     },
     { // grey
       backgroundColor: 'rgba(148,159,177,0.2)',
@@ -136,7 +128,8 @@ export class ChartComponent implements OnInit {
       pointBorderColor: '#fff',
       pointHoverBackgroundColor: '#fff',
       pointHoverBorderColor: 'rgba(148,159,177,0.8)',
-      hidden: true
+      fill: false,
+      lineTension: 0
     },
     { // grey
       backgroundColor: 'rgba(148,159,177,0.2)',
@@ -145,7 +138,8 @@ export class ChartComponent implements OnInit {
       pointBorderColor: '#fff',
       pointHoverBackgroundColor: '#fff',
       pointHoverBorderColor: 'rgba(148,159,177,0.8)',
-      hidden: true
+      hidden: true,
+      fill: false
     },
     { // grey
       backgroundColor: 'rgba(148,159,177,0.2)',
@@ -154,7 +148,8 @@ export class ChartComponent implements OnInit {
       pointBorderColor: '#fff',
       pointHoverBackgroundColor: '#fff',
       pointHoverBorderColor: 'rgba(148,159,177,0.8)',
-      hidden: true
+      hidden: true,
+      fill: false
     },
     { // grey
       backgroundColor: 'rgba(148,159,177,0.2)',
@@ -162,7 +157,29 @@ export class ChartComponent implements OnInit {
       pointBackgroundColor: 'rgba(148,159,177,1)',
       pointBorderColor: '#fff',
       pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+      pointHoverBorderColor: 'rgba(148,159,177,0.8)',
+      hidden: true,
+      fill: false
+    },
+    { // grey
+      backgroundColor: 'rgba(148,159,177,0.2)',
+      borderColor: 'rgba(148,159,177,1)',
+      pointBackgroundColor: 'rgba(148,159,177,1)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(148,159,177,0.8)',
+      hidden: true,
+      fill: false
+    },
+    { // grey
+      backgroundColor: 'rgba(148,159,177,0.2)',
+      borderColor: 'rgba(148,159,177,1)',
+      pointBackgroundColor: 'rgba(148,159,177,1)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(148,159,177,0.8)',
+      fill: false,
+      lineTension: 0
     },
   ];
   public lineChartLegend:boolean = true;
