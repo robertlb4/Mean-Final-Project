@@ -26,11 +26,10 @@ export class InputFormComponent implements OnInit {
     this.statementQ = false;
   }
   
-  onClick(): void {
+  onClickCalc(): void {
     this.calc.calcBenefit(this.inputInfo.user.dob, this.inputInfo.user.ssiAmount, this.inputInfo.user.income, this.statement);
     this.inputInfo.sendChartData();
     this.router.navigate([`/chart`]);
-    
   }
 
   ngOnInit() {
