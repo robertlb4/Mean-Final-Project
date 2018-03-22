@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { InputinfoService } from '../inputinfo.service';
-import { Chart } from 'chart.js';
 
 @Component({
   selector: 'app-chart',
@@ -22,46 +21,46 @@ export class ChartComponent implements OnInit {
     // })
   }
 
-  public lineChartData:Array<any> = [
-    {data: [
-      this.inputInfo.user.monthlyBen[0]*12,
-      this.inputInfo.user.monthlyBen[0]*60,
-      this.inputInfo.user.monthlyBen[0]*120,
-      this.inputInfo.user.monthlyBen[0]*180,
-      this.inputInfo.user.monthlyBen[0]*240,
-      this.inputInfo.user.monthlyBen[0]*300,
-      this.inputInfo.user.monthlyBen[0]*360,
-      this.inputInfo.user.monthlyBen[0]*420,
-      this.inputInfo.user.monthlyBen[0]*480
-      ], 
-      label: 'Retire at 62'
-    },
-    {data: [
-      this.inputInfo.user.monthlyBen[1]*12,
-      this.inputInfo.user.monthlyBen[1]*60,
-      this.inputInfo.user.monthlyBen[1]*120,
-      this.inputInfo.user.monthlyBen[1]*180,
-      this.inputInfo.user.monthlyBen[1]*240,
-      this.inputInfo.user.monthlyBen[1]*300,
-      this.inputInfo.user.monthlyBen[1]*360,
-      this.inputInfo.user.monthlyBen[1]*420,
-      this.inputInfo.user.monthlyBen[1]*480
-      ],  
-      label: 'Retire at 63'
-    },
-    {data: [
-      this.inputInfo.user.monthlyBen[2]*12,
-      this.inputInfo.user.monthlyBen[2]*60,
-      this.inputInfo.user.monthlyBen[2]*120,
-      this.inputInfo.user.monthlyBen[2]*180,
-      this.inputInfo.user.monthlyBen[2]*240,
-      this.inputInfo.user.monthlyBen[2]*300,
-      this.inputInfo.user.monthlyBen[2]*360,
-      this.inputInfo.user.monthlyBen[2]*420,
-      this.inputInfo.user.monthlyBen[2]*480
-      ],  
-      label: 'Retire at 64'
-    }];
+  public lineChartData:Array<any> = this.inputInfo.chartData;
+    // {data: [
+    //   this.inputInfo.user.monthlyBen[0]*12,
+    //   this.inputInfo.user.monthlyBen[0]*60,
+    //   this.inputInfo.user.monthlyBen[0]*120,
+    //   this.inputInfo.user.monthlyBen[0]*180,
+    //   this.inputInfo.user.monthlyBen[0]*240,
+    //   this.inputInfo.user.monthlyBen[0]*300,
+    //   this.inputInfo.user.monthlyBen[0]*360,
+    //   this.inputInfo.user.monthlyBen[0]*420,
+    //   this.inputInfo.user.monthlyBen[0]*480
+    //   ], 
+    //   label: 'Retire at 62'
+    // },
+    // {data: [
+    //   this.inputInfo.user.monthlyBen[1]*12,
+    //   this.inputInfo.user.monthlyBen[1]*60,
+    //   this.inputInfo.user.monthlyBen[1]*120,
+    //   this.inputInfo.user.monthlyBen[1]*180,
+    //   this.inputInfo.user.monthlyBen[1]*240,
+    //   this.inputInfo.user.monthlyBen[1]*300,
+    //   this.inputInfo.user.monthlyBen[1]*360,
+    //   this.inputInfo.user.monthlyBen[1]*420,
+    //   this.inputInfo.user.monthlyBen[1]*480
+    //   ],  
+    //   label: 'Retire at 63'
+    // },
+    // {data: [
+    //   this.inputInfo.user.monthlyBen[2]*12,
+    //   this.inputInfo.user.monthlyBen[2]*60,
+    //   this.inputInfo.user.monthlyBen[2]*120,
+    //   this.inputInfo.user.monthlyBen[2]*180,
+    //   this.inputInfo.user.monthlyBen[2]*240,
+    //   this.inputInfo.user.monthlyBen[2]*300,
+    //   this.inputInfo.user.monthlyBen[2]*360,
+    //   this.inputInfo.user.monthlyBen[2]*420,
+    //   this.inputInfo.user.monthlyBen[2]*480
+    //   ],  
+    //   label: 'Retire at 64'
+    // }];
     
   public lineChartLabels:Array<any> = [60, 65, 70, 75, 80, 85, 90, 95, 100];
   
@@ -100,7 +99,17 @@ export class ChartComponent implements OnInit {
       pointBackgroundColor: 'rgba(77,83,96,1)',
       pointBorderColor: '#fff',
       pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(77,83,96,1)'
+      pointHoverBorderColor: 'rgba(77,83,96,1)',
+      hidden: true
+    },
+    { // grey
+      backgroundColor: 'rgba(148,159,177,0.2)',
+      borderColor: 'rgba(148,159,177,1)',
+      pointBackgroundColor: 'rgba(148,159,177,1)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(148,159,177,0.8)',
+      hidden: true
     },
     { // grey
       backgroundColor: 'rgba(148,159,177,0.2)',
@@ -109,7 +118,51 @@ export class ChartComponent implements OnInit {
       pointBorderColor: '#fff',
       pointHoverBackgroundColor: '#fff',
       pointHoverBorderColor: 'rgba(148,159,177,0.8)'
-    }
+    },
+    { // grey
+      backgroundColor: 'rgba(148,159,177,0.2)',
+      borderColor: 'rgba(148,159,177,1)',
+      pointBackgroundColor: 'rgba(148,159,177,1)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(148,159,177,0.8)',
+      hidden: true
+    },
+    { // grey
+      backgroundColor: 'rgba(148,159,177,0.2)',
+      borderColor: 'rgba(148,159,177,1)',
+      pointBackgroundColor: 'rgba(148,159,177,1)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(148,159,177,0.8)',
+      hidden: true
+    },
+    { // grey
+      backgroundColor: 'rgba(148,159,177,0.2)',
+      borderColor: 'rgba(148,159,177,1)',
+      pointBackgroundColor: 'rgba(148,159,177,1)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(148,159,177,0.8)',
+      hidden: true
+    },
+    { // grey
+      backgroundColor: 'rgba(148,159,177,0.2)',
+      borderColor: 'rgba(148,159,177,1)',
+      pointBackgroundColor: 'rgba(148,159,177,1)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(148,159,177,0.8)',
+      hidden: true
+    },
+    { // grey
+      backgroundColor: 'rgba(148,159,177,0.2)',
+      borderColor: 'rgba(148,159,177,1)',
+      pointBackgroundColor: 'rgba(148,159,177,1)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+    },
   ];
   public lineChartLegend:boolean = true;
   public lineChartType:string = 'line';

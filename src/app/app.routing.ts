@@ -15,7 +15,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { ChartComponent } from './chart/chart.component';
 
 export const ROUTES: Routes = [
-    {path: '', redirectTo: 'log-in', pathMatch: 'full'},
+    {path: '', redirectTo: 'home', pathMatch: 'full'},
     {path: 'log-in', component: LogInComponent},
     {path: 'sign-up', component: SignUpComponent},
     {path: 'home', component: InputFormComponent},

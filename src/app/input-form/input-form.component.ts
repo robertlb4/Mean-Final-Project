@@ -28,7 +28,7 @@ export class InputFormComponent implements OnInit {
   
   onClick(): void {
     this.calc.calcBenefit(this.inputInfo.user.dob, this.inputInfo.user.ssiAmount, this.inputInfo.user.income, this.statement);
-    console.log(this.inputInfo.user.monthlyBen);
+    this.inputInfo.sendChartData();
     this.router.navigate([`/chart`]);
     
   }

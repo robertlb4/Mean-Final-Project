@@ -20,7 +20,22 @@ export class InputinfoService {
   constructor(private http: HttpClient) { }
   
   sendChartData(){
-    
+    this.chartData=this.user.monthlyBen
+    .map((e, i) => {
+      return {data: [
+        e*12,
+        e*60,
+        e*120,
+        e*180,
+        e*240,
+        e*300,
+        e*360,
+        e*420,
+        e*480
+      ],
+      label: 'Retire at' + this.startAge[i]  
+      };})
+      console.log(this.chartData);
   }
   
   retrieveProfile (profile) {

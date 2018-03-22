@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { InputinfoService } from '../inputinfo.service'
 import { UserService } from '../user.service'
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-sign-up',
@@ -9,7 +11,7 @@ import { UserService } from '../user.service'
 })
 export class SignUpComponent implements OnInit {
   
-  constructor(private inputInfo: InputinfoService, private _user: UserService) { }
+  constructor(private inputInfo: InputinfoService, private _user: UserService, private router: Router) { }
   
   // reginfo: any = {
   //   firstName: this.inputInfo.user.firstName,
@@ -24,6 +26,11 @@ export class SignUpComponent implements OnInit {
   
   signUp() {
     this._user.registerUser(this.inputInfo.user.reginfo)
-    .subscribe(result => console.log(result))
+    .subscribe((result: any) => {
+      console.log(result);
+      sessionStorage.setItem('token', result.token);
+      sessionStorage.setItem('userId', result.userId);
+      this.router.navigate(['']);
+    })
   }
 }
