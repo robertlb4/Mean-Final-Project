@@ -3,6 +3,7 @@
         <tr>
             <th>Retirement Age</th>
             <th>Monthly Benefit</th>
+            <th>Age to Break Even</th>
             <th>Total at 75</th>
             <th>Total at 85</th>
             <th>Total at 95</th>
@@ -10,9 +11,10 @@
         <tr *ngFor="let benefit of inputInfo.user.monthlyBen; let i=index">
             <td>{{ inputInfo.startAge[i] }}</td>
             <td>{{ benefit }}</td>
-            <td>{{ benefit  * (75 -  inputInfo.startAge[i]) }}</td>
-            <td>{{ benefit  * (85 -  inputInfo.startAge[i]) }}</td>
-            <td>{{ benefit  * (95 -  inputInfo.startAge[i]) }}</td>
+            <td></td>
+            <td>{{ benefit  * ((75 -  inputInfo.startAge[i])* 12) }}</td>
+            <td>{{ benefit  * ((85 -  inputInfo.startAge[i])* 12) }}</td>
+            <td>{{ benefit  * ((95 -  inputInfo.startAge[i])* 12) }}</td>
         </tr>
     </table>
 </div>

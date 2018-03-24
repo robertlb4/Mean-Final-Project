@@ -70,10 +70,7 @@ export class CalculateService {
                 monthlyBen.push(Math.round(fullBen * factor))
             }
           })
-          console.log(monthlyBen);
           this.inputInfo.user.monthlyBen = monthlyBen;
       }
-      
-      //return monthlyBen;
   }
 }

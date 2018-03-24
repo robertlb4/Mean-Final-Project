@@ -14,60 +14,11 @@ export class ChartComponent implements OnInit {
   constructor(private inputInfo: InputinfoService, private _user: UserService) { }
 
   ngOnInit() {
-    
-    // this.chart = new Chart(canvas, {
-    //   type: 'line',
-    //   labels: 
-      
-    // })
   }
 
   public lineChartData:Array<any> = this.inputInfo.chartData;
   
-  public lineChartLabels:Array<any> = [60, 65, 70, 75, 80, 85, 90, 95, 100];
-    // {data: [
-    //   this.inputInfo.user.monthlyBen[0]*12,
-    //   this.inputInfo.user.monthlyBen[0]*60,
-    //   this.inputInfo.user.monthlyBen[0]*120,
-    //   this.inputInfo.user.monthlyBen[0]*180,
-    //   this.inputInfo.user.monthlyBen[0]*240,
-    //   this.inputInfo.user.monthlyBen[0]*300,
-    //   this.inputInfo.user.monthlyBen[0]*360,
-    //   this.inputInfo.user.monthlyBen[0]*420,
-    //   this.inputInfo.user.monthlyBen[0]*480
-    //   ], 
-    //   label: 'Retire at 62'
-    // },
-    // {data: [
-    //   this.inputInfo.user.monthlyBen[1]*12,
-    //   this.inputInfo.user.monthlyBen[1]*60,
-    //   this.inputInfo.user.monthlyBen[1]*120,
-    //   this.inputInfo.user.monthlyBen[1]*180,
-    //   this.inputInfo.user.monthlyBen[1]*240,
-    //   this.inputInfo.user.monthlyBen[1]*300,
-    //   this.inputInfo.user.monthlyBen[1]*360,
-    //   this.inputInfo.user.monthlyBen[1]*420,
-    //   this.inputInfo.user.monthlyBen[1]*480
-    //   ],  
-    //   label: 'Retire at 63'
-    // },
-    // {data: [
-    //   this.inputInfo.user.monthlyBen[2]*12,
-    //   this.inputInfo.user.monthlyBen[2]*60,
-    //   this.inputInfo.user.monthlyBen[2]*120,
-    //   this.inputInfo.user.monthlyBen[2]*180,
-    //   this.inputInfo.user.monthlyBen[2]*240,
-    //   this.inputInfo.user.monthlyBen[2]*300,
-    //   this.inputInfo.user.monthlyBen[2]*360,
-    //   this.inputInfo.user.monthlyBen[2]*420,
-    //   this.inputInfo.user.monthlyBen[2]*480
-    //   ],  
-    //   label: 'Retire at 64'
-    // }];
-    
-  
-  
-  
+  public lineChartLabels:Array<any> = this.inputInfo.chartXAxis;
   
   public lineChartOptions:any = {
     responsive: true,
@@ -83,12 +34,18 @@ export class ChartComponent implements OnInit {
       }],
       
       xAxes: [{
+        display: true,
         scaleLabel: {
           display: true,
-          labelString: "Retirement Age"
+          labelString: "Retirement Age",
+          type: 'time',
+          ticks: {
+            autoSkip: true,
+            maxTicksLimit: 8
+          }
         }
-      }]
-    }     
+    }]   
+  }
   };
   public lineChartColors:Array<any> = [
     { // grey
