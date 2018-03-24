@@ -6,7 +6,8 @@ import { Observable} from 'rxjs/Observable';
 export class InputinfoService {
   
   startAge = [62, 63, 64, 65, 66, 67, 68, 69, 70];
-  chartXAxis= [60, 65, 70, 75, 80, 85, 90, 95, 100];
+  chartXAxis: any[] = []
+  //[60, 65, 70, 75, 80, 85, 90, 95, 100];
   
   url: string = "https://example.com";
     
@@ -21,6 +22,10 @@ export class InputinfoService {
   constructor(private http: HttpClient) { }
   
   sendChartData(){
+    for (let i=60; i<=100; i++) {
+      this.chartXAxis.push(i);
+    };
+    
     this.chartData=this.user.monthlyBen
     .map((e, i) => {
       return {data: [
@@ -33,7 +38,13 @@ export class InputinfoService {
         Math.max(0, e*((this.chartXAxis[6] - this.startAge[i])*12)),
         Math.max(0, e*((this.chartXAxis[7] - this.startAge[i])*12)),
         Math.max(0, e*((this.chartXAxis[8] - this.startAge[i])*12)),
-      ],
+      ].map(x => {
+        if (x === 0) {
+          return null;
+        } else {
+          return x;
+        }
+      }),
       label: 'Retire at' + this.startAge[i]  
       };
     })
