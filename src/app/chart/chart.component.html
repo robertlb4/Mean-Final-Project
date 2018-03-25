@@ -12,8 +12,16 @@
                 (chartClick)="chartClicked($event)"></canvas>
     </div>
   </div>
-  <app-table></app-table>
-  <!--<div class="col-md-6" style="margin-bottom: 10px">-->
+  <div col-md-6>
+    <app-table></app-table>
+    <button (click)="clickSave()">CLICK</button>
+  </div>
+  
+</div>
+  
+
+
+<!--<div class="col-md-6" style="margin-bottom: 10px">-->
   <!--  <table class="table table-responsive table-condensed">-->
   <!--    <tr>-->
   <!--      <th *ngFor="let label of lineChartLabels">{{label}}</th>-->
@@ -23,6 +31,3 @@
   <!--    </tr>-->
   <!--  </table>-->
   <!--</div>-->
-</div>
-
-<button (click)="clickSave()">CLICK</button>

@@ -10,10 +10,12 @@ export class InputinfoService {
   chartXAxis: any[] = []
     
   user: any = {
+    dob: '1954-03-03',
+    income: 50000,
+    ssiAmount: 200000,
     reginfo: {},
-    
-    
   };
+  
   chartData: any[] = [];
  
   breakEven: any[] = [];
@@ -43,7 +45,7 @@ export class InputinfoService {
       label: 'Retire at ' + this.startAge[i]  
       };
     })
-    console.log(this.breakEven)  ;
+    console.log(this.user)  ;
   }
 }
 
