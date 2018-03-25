@@ -10,14 +10,13 @@ export class InputinfoService {
   chartXAxis: any[] = []
     
   user: any = {
-    reginfo: {
-      
-    },
+    reginfo: {},
+    
     
   };
   chartData: any[] = [];
  
- breakEven: number[] = [];
+  breakEven: any[] = [];
  
   constructor(private http: HttpClient) { }
   
@@ -29,8 +28,9 @@ export class InputinfoService {
     this.chartData=this.user.monthlyBen
     .map((e, i) => {
       return {data: this.chartXAxis.map( age => {
-        if (e*((age-this.startAge[i])*12) >= this.user.ssiAmount) {
-          this.breakEven.push(age);
+        if (e * ((age-this.startAge[i]) * 12) >= this.user.ssiAmount
+            && !this.breakEven.some( (p) => p.startAge===this.startAge[i])) {
+          this.breakEven.push({startAge: this.startAge[i], evenAge: age});
         }
        	return e*((age-this.startAge[i])*12)
        }).map(x => {
@@ -43,7 +43,7 @@ export class InputinfoService {
       label: 'Retire at ' + this.startAge[i]  
       };
     })
-      
+    console.log(this.breakEven)  ;
   }
 }
 
