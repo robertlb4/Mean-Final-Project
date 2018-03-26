@@ -23,8 +23,8 @@ export class UserService {
   saveResult (userInfo) {
       let userId = sessionStorage.getItem('userId');
       let token = sessionStorage.getItem('token');
-      console.log(userInfo);
-      console.log(typeof(userInfo.fra));
+    //   console.log(userInfo);
+    //   console.log(typeof(userInfo.fra));
       return this._http.post(this.baseUrl + userId + '/ssireturns?access_token=' + token, userInfo)
   }
 

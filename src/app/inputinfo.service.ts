@@ -45,7 +45,14 @@ export class InputinfoService {
       label: 'Retire at ' + this.startAge[i]  
       };
     })
-    console.log(this.user)  ;
+    this.chartData.push({
+      data: this.chartXAxis.map( ssi => {return this.user.ssiAmount}), 
+      label: 'Break Even'
+    })
+      
+    console.log(this.user);
   }
+  
+  
 }
 

@@ -8,6 +8,8 @@ import { InputinfoService } from '../inputinfo.service'
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements OnInit {
+  
+  
 
   constructor(private inputInfo: InputinfoService) { }
 
