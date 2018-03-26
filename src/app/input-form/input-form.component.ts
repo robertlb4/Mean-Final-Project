@@ -14,6 +14,8 @@ export class InputFormComponent implements OnInit {
   
   statement: boolean;
   
+  public openState: boolean = false;
+  
   constructor(private inputInfo: InputinfoService, private calc: CalculateService, private router: Router) { }
   
   statementYes() {

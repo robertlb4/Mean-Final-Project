@@ -164,10 +164,7 @@ export class ChartComponent implements OnInit {
   //   this.lineChartData = _lineChartData;
   // }
   
-  clickSave () {
-    this._user.saveResult({dob: this.inputInfo.user.dob, income: this.inputInfo.user.income, ssiAmount: this.inputInfo.user.ssiAmount, monthlybenefit: this.inputInfo.user.monthlyBen})
-    .subscribe(result => console.log(result + " success!"))
-  }
+  
  
   // events
   public chartClicked(e:any):void {

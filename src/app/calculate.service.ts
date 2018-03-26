@@ -38,16 +38,16 @@ export class CalculateService {
       
       if (statement) {
           startAge.map((x)=> {
-            if (x < fra) {
+            if (x*12 < fra) {
                 let factor = 1 - ((fra - (x * 12)) * .0041667);
-                monthlyBen.push(Math.round(income * factor));
+                monthlyBen.push(Math.floor(income * factor));
             }
-            else if (x = fra){
-                monthlyBen.push(Math.round(income));
+            else if (x*12 === fra){
+                monthlyBen.push(Math.floor(income));
              }
             else {
                 let factor = 1 + (((x * 12) - fra) * .00667);
-                monthlyBen.push(Math.round(income * factor))
+                monthlyBen.push(Math.floor(income * factor))
             }
           })
       }
@@ -55,19 +55,19 @@ export class CalculateService {
         fullBen = monthlyIncome > 5397 ? 805.5 + ((monthlyIncome - 895) * .32)
                     + ((monthlyIncome - 6292) * .15) : 805.5 + ((monthlyIncome - 895) * .32);
           
-        fullBen = fullBen > 2778 ? 2778 : fullBen;
+        fullBen = fullBen > 2788 ? 2788 : fullBen;
           
         startAge.map((x)=> {
-            if (x < fra) {
+            if ((x * 12) < fra) {
                 let factor = 1 - ((fra - (x * 12)) * .0041667)
-                monthlyBen.push(Math.round(fullBen * factor));
+                monthlyBen.push(Math.floor(fullBen * factor));
             }
-            else if (x = fra){
-                monthlyBen.push(Math.round(fullBen));
+            else if (x*12 === fra){
+                monthlyBen.push(Math.floor(fullBen));
             }
             else {
                 let factor = 1 + (((x * 12) - fra) * .00667)
-                monthlyBen.push(Math.round(fullBen * factor))
+                monthlyBen.push(Math.floor(fullBen * factor))
             }
           })
           this.inputInfo.user.monthlyBen = monthlyBen;

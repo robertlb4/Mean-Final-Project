@@ -2,7 +2,7 @@
     <form #haveInfo="ngForm">
         <section class="form-block">
             <div class="form-group">
-                <label>Do you have you <a href="https://www.ssa.gov/myaccount/statement.html">Social Security Statement?</a></label>
+                <label>Do you have your <a href="https://www.ssa.gov/myaccount/statement.html">Social Security Statement?</a></label>
                 <div class="radio-inline">
                 <input type="radio" name="gridRadios1" id="checkrads_11" 
                 (click)="statementYes()">
@@ -23,7 +23,7 @@
     <section class="form-block">
         <label>Please enter your information</label>
         <div class="form-group">
-            <label for="dob">Date of Birth</label>
+            <label class="inputQ" for="dob">Date of Birth</label>
             <label for="dob"
                 aria-haspopup="true"
                 role="tooltip"
@@ -40,13 +40,20 @@
             </label>
         </div>
         <div class="form-group">
-            <label for="ssiAmount">Total Social Security Taxes Paid</label>
+            <label style="width: 300px" class="inputQ" for="ssiAmount">Total Social Security Taxes Paid
+                <clr-signpost>
+                    <clr-signpost-content *clrIfOpen="openState">
+                        <h3 style="margin-top: 0">Total amount paid into Social Security</h3>
+                        <p>How much have you paid in Social Security taxes?  It is ok to estimate!</p>
+                    </clr-signpost-content>
+                </clr-signpost>
+            </label>
             <label for="ssiAmount"
                 aria-haspopup="true"
                 role="tooltip"
                 class="tooltip tooltip-validation tooltip-md"
                 [class.invalid]="ssiInput.invalid && (ssiInput.dirty || ssiInput.touched)">
-                <input type="number" min="0" step="100" id="avgIncome" placeholder="Enter amount"
+                <input type="number" min="0" step="100" id="ssiAmount" placeholder="Enter amount"
                     required
                     name="ssiAmount"
                     [(ngModel)]="inputInfo.user.ssiAmount"
@@ -57,7 +64,7 @@
             </label>
         </div>
         <div class="form-group" *ngIf="!statement">
-            <label for="avgIncome">Average Yearly Income</label>
+            <label class="inputQ" for="avgIncome">Average Yearly Income</label>
             <label for="avgIncome"
                 aria-haspopup="true"
                 role="tooltip"
@@ -74,7 +81,7 @@
             </label>
         </div>
         <div class="form-group" *ngIf="statement">
-            <label for="monthlyBen">Your Monthly Payment(from top of statement)</label>
+            <label class="inputQ" for="monthlyBen">Your Monthly Payment(from top of statement)</label>
             <label for="monthlyBen"
                 aria-haspopup="true"
                 role="tooltip"

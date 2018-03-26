@@ -21,7 +21,8 @@ export const ROUTES: Routes = [
     {path: 'home', component: InputFormComponent},
     {path: 'about', component: AboutComponent},
     {path: 'table', component: TableComponent},
-    {path: 'chart', component: ChartComponent}
+    {path: 'chart', component: ChartComponent},
+    {path: 'test', component: HomeComponent}
 ];
 
 export const ROUTING: ModuleWithProviders = RouterModule.forRoot(ROUTES);

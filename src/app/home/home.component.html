@@ -8,6 +8,7 @@
 <!--<p>This is a Clarity seed application. This is the default page that loads for the application.</p>-->
 
 <!--<clr-dropdown>-->
+  
 <!--    <button clrDropdownTrigger class="btn">-->
 <!--        Dropdown-->
 <!--        <clr-icon shape="caret down"></clr-icon>-->
@@ -20,3 +21,25 @@
 <!--        <a clrDropdownItem href="javascript://">Link 2</a>-->
 <!--    </clr-dropdown-menu>-->
 <!--</clr-dropdown>-->
+<div class="row">
+    <div class="col-lg-3 col-md-8 col-sm-12 col-xs-12"
+    *ngFor="let card of profile, let i=index">
+        <div class="card clickable">
+            <div class="card-header">
+                {{profile[i].dob}}
+            </div>
+            <div class="card-block">
+                <div class="card-title">
+                    {{profile[i].income}}
+                </div>
+                <div class="card-text">
+                    ...
+                </div>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-sm btn-link">Footer Action 1</button>
+                <button class="btn btn-sm btn-link">Footer Action 2</button>
+            </div>
+        </div>
+    </div>
+</div>
