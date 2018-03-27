@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { InputinfoService } from '../inputinfo.service'
-import { UserService } from '../user.service'
+import { UserService } from '../user.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -25,6 +25,7 @@ export class LogInComponent implements OnInit {
     .subscribe((result: any) => {
       sessionStorage.setItem('userId', result.userId);
       sessionStorage.setItem('token', result.token);
+      this._user.token = result.token;
       this.router.navigate(['']);
     },
     error => this.failed = true)

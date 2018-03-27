@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from './user.service'
 
 @Component({
     selector: 'my-app',
@@ -7,8 +8,9 @@ import { Router } from '@angular/router';
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-    token: any = sessionStorage.getItem('token')
     
-    constructor(private router: Router) {
+    
+    constructor(private router: Router, private _user: UserService) {
     }
+    
 }

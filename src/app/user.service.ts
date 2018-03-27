@@ -7,8 +7,10 @@ export class UserService {
     private email: string = "";
     private password: string = "";
     
-    baseUrl: string = "http://robert-spring-2018-phortonssf.c9users.io:8080/api/appUsers/"
-
+    baseUrl: string = "http://robert-spring-2018-phortonssf.c9users.io:8080/api/appUsers/";
+    
+    token: any = sessionStorage.getItem('token');
+    
   constructor(private _http: HttpClient) { }
   
   registerUser(userInfo) {

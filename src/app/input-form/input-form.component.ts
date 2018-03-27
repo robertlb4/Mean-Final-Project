@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { InputinfoService } from '../inputinfo.service'
 import { CalculateService } from '../calculate.service'
+import { UserService } from '../user.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,13 +11,15 @@ import { Router } from '@angular/router';
 })
 export class InputFormComponent implements OnInit {
   
+  
+  
   statementQ: boolean = true;
   
   statement: boolean;
   
   public openState: boolean = false;
   
-  constructor(private inputInfo: InputinfoService, private calc: CalculateService, private router: Router) { }
+  constructor(private inputInfo: InputinfoService, private calc: CalculateService, private router: Router, private _user: UserService) { }
   
   statementYes() {
     this.statement = true;

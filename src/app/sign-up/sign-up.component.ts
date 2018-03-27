@@ -28,6 +28,7 @@ export class SignUpComponent implements OnInit {
       console.log(result);
       sessionStorage.setItem('token', result.token);
       sessionStorage.setItem('userId', result.userId);
+      this._user.token = result.token;
       this.router.navigate(['']);
     },
     error => this.failed=true)

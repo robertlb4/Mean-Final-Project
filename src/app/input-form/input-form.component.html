@@ -1,3 +1,41 @@
+<!--<div class="modal"-->
+<!-- *ngIf="!_user.token">-->
+<!--    <div class="modal-dialog" role="dialog" aria-hidden="true">-->
+<!--        <div class="modal-content">-->
+<!--            <div class="login-wrapper">-->
+<!--            <form class="login">-->
+<!--        <label class="title">-->
+<!--            <h3 class="welcome">Welcome to the</h3>-->
+<!--            SSI Calculator-->
+<!--            <h5 class="hint">Start planning for your future</h5>-->
+<!--        </label>-->
+<!--        <div class="login-group">-->
+<!--            <input class="firstname" type="text" id="firstname" name="firstName"-->
+<!--            placeholder="First Name"-->
+<!--            [(ngModel)]="inputInfo.user.reginfo.firstName">-->
+<!--            <input class="lastname" type="text" id="lastname" name="lastName"-->
+<!--            placeholder="Last Name"-->
+<!--            [(ngModel)]="inputInfo.user.reginfo.lastName">-->
+<!--            <input class="email" type="email" id="Email" name="email"-->
+<!--            placeholder="E-mail"-->
+<!--            [(ngModel)]="inputInfo.user.reginfo.email">-->
+<!--            <input class="password" type="password" id="password" name="password"-->
+<!--            placeholder="Password"-->
+<!--            [(ngModel)]="inputInfo.user.reginfo.password">-->
+<!--            <div class="active"-->
+<!--            [class.error]="failed">-->
+<!--                Invalid E-mail or password-->
+<!--            </div>-->
+<!--            <button type="submit" class="btn btn-primary"-->
+<!--            (click)="signUp()">Create Account</button>-->
+<!--        </div>-->
+<!--    </form>-->
+<!--    </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--<div class="modal-backdrop" aria-hidden="true"></div>-->
+
 <div  *ngIf="statementQ" id ="form">
     <form #haveInfo="ngForm">
         <section class="form-block">
