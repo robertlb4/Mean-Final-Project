@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { InputinfoService } from '../inputinfo.service';
-import { UserService } from '../user.service'
+import { UserService } from '../user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-chart',
@@ -9,11 +10,15 @@ import { UserService } from '../user.service'
 })
 export class ChartComponent implements OnInit {
   
-  chart = [];
+  // chart = [];
 
-  constructor(private inputInfo: InputinfoService, private _user: UserService) { }
+  constructor(private inputInfo: InputinfoService, private _user: UserService, private router: Router) { }
 
   ngOnInit() {
+    if (this.lineChartData.length === 0){
+      this.router.navigate(['']);
+    }
+   
   }
 
   public lineChartData:Array<any> = this.inputInfo.chartData;
