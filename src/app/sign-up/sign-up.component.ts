@@ -16,6 +16,9 @@ export class SignUpComponent implements OnInit {
   constructor(private inputInfo: InputinfoService, private _user: UserService, private router: Router) { }
   
   ngOnInit() {
+    if (sessionStorage.getItem('token')) {
+      this.router.navigate(['']);
+    }
   
   }
   

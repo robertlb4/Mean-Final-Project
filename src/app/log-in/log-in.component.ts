@@ -15,6 +15,9 @@ export class LogInComponent implements OnInit {
   constructor(private inputInfo: InputinfoService, private _user: UserService, private router: Router) { }
 
   ngOnInit() {
+     if (sessionStorage.getItem('token')) {
+      this.router.navigate(['']);
+    }
   }
   
   onLogIn() {

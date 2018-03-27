@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-    
+    token: any = sessionStorage.getItem('token')
     
     constructor(private router: Router) {
     }
