@@ -26,11 +26,11 @@
     *ngFor="let card of profile, let i=index">
         <div class="card clickable">
             <div class="card-header">
-                {{profile[i].timeStamp | date:"short"}}
+                {{card.timeStamp | date:"EEE, MMM d, h:mm a"}}
             </div>
             <div class="card-block">
                 <div class="card-title">
-                    Average Income: ${{profile[i].profile.income}}
+                    Average Income: ${{card.profile.income}}
                     
                 </div>
                 <div class="card-text">
@@ -38,8 +38,10 @@
                 </div>
             </div>
             <div class="card-footer">
-                <button class="btn btn-sm btn-link">Footer Action 1</button>
-                <button class="btn btn-sm btn-link">Footer Action 2</button>
+                <button class="btn btn-sm btn-link"
+                (click)="clickDelete(card.id)">Delete</button>
+                <button class="btn btn-sm btn-link"
+                (click)="clickCalc(card)">View</button>
             </div>
         </div>
     </div>

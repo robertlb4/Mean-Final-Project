@@ -6,6 +6,8 @@
 import { Component, OnInit } from "@angular/core";
 import { InputinfoService } from '../inputinfo.service'
 import { UserService } from '../user.service'
+import { CalculateService } from '../calculate.service'
+import { Router } from '@angular/router';
 
 @Component({
     styleUrls: ['./home.component.scss'],
@@ -15,14 +17,22 @@ export class HomeComponent {
     
     profile: any;
     
-    constructor(private inputInfo: InputinfoService, private _user: UserService) { }
+    constructor(private inputInfo: InputinfoService, private _user: UserService, private calc: CalculateService, private router: Router) { }
     
     ngOnInit() {
         this._user.getProfileCards()
         .subscribe(result => {
             this.profile = result; 
-            return console.log(this.profile[0].timeStamp.toString());
+            return console.log(result);
         });
+    }
+    
+    clickCalc(profile) {
+        this.inputInfo.user = profile.profile;
+        console.log(this.inputInfo.user);
+        this.calc.calcBenefit(this.inputInfo.user.dob, this.inputInfo.user.ssiAmount, this.inputInfo.user.income, false);
+        this.inputInfo.sendChartData();
+        this.router.navigate([`/chart`]);
     }
 
 }

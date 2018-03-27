@@ -23,6 +23,9 @@ export class InputinfoService {
   constructor(private http: HttpClient) { }
   
   sendChartData(){
+    this.chartXAxis = [];
+    this.chartData = [];
+    this.breakEven = [];
     for (let i=60; i<=100; i++) {
       this.chartXAxis.push(i);
     };
