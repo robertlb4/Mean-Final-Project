@@ -26,11 +26,12 @@
     *ngFor="let card of profile, let i=index">
         <div class="card clickable">
             <div class="card-header">
-                {{profile[i].dob}}
+                {{profile[i].timeStamp | date:"short"}}
             </div>
             <div class="card-block">
                 <div class="card-title">
-                    {{profile[i].income}}
+                    Average Income: ${{profile[i].profile.income}}
+                    
                 </div>
                 <div class="card-text">
                     ...

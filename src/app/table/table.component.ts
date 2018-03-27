@@ -18,8 +18,10 @@ export class TableComponent implements OnInit {
   }
 
   clickSave () {
-    this._user.saveResult({dob: this.inputInfo.user.dob, income: this.inputInfo.user.income, ssiAmount: this.inputInfo.user.ssiAmount, monthlybenefit: this.inputInfo.user.monthlyBen})
+    let profInfo = { ...this.inputInfo.user };
+    delete profInfo.reginfo;
+    this._user.saveResult(profInfo)
     .subscribe(result => console.log(result + " success!"))
   }
-
+//{dob: this.inputInfo.user.dob, income: this.inputInfo.user.income, ssiAmount: this.inputInfo.user.ssiAmount, monthlybenefit: this.inputInfo.user.monthlyBen}
 }

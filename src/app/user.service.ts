@@ -21,9 +21,11 @@ export class UserService {
   }
   
   saveResult (userInfo) {
+      let time = new Date();
       let userId = sessionStorage.getItem('userId');
       let token = sessionStorage.getItem('token');
-      return this._http.post(this.baseUrl + userId + '/ssireturns?access_token=' + token, userInfo)
+      console.log(time);
+      return this._http.post(this.baseUrl + userId + '/ssireturns?access_token=' + token, {profile: userInfo, timeStamp: time})
   }
   
   getProfileCards() {

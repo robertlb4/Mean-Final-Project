@@ -18,6 +18,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { LogInComponent } from './log-in/log-in.component';
 import { ChartComponent } from './chart/chart.component';
 import { UserService } from './user.service'
+import { DatePipe } from '@angular/common';
 
 
 @NgModule({
@@ -39,12 +40,13 @@ import { UserService } from './user.service'
         ClarityModule,
         ROUTING,
         HttpClientModule,
-        ChartsModule,
+        ChartsModule
     ],
     providers: [
     InputinfoService,
     CalculateService,
-    UserService
+    UserService,
+    DatePipe
     ],
     bootstrap: [AppComponent]
 })

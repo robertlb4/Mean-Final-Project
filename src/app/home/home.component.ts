@@ -21,7 +21,7 @@ export class HomeComponent {
         this._user.getProfileCards()
         .subscribe(result => {
             this.profile = result; 
-            return console.log(this.profile);
+            return console.log(this.profile[0].timeStamp.toString());
         });
     }
 
