@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./log-in.component.scss']
 })
 export class LogInComponent implements OnInit {
+  
+  failed: boolean;
 
   constructor(private inputInfo: InputinfoService, private _user: UserService, private router: Router) { }
 
@@ -18,10 +20,10 @@ export class LogInComponent implements OnInit {
   onLogIn() {
     this._user.logIn()
     .subscribe((result: any) => {
-      console.log(result);
       sessionStorage.setItem('userId', result.userId);
       sessionStorage.setItem('token', result.token);
       this.router.navigate(['']);
-    })
+    },
+    error => this.failed = true)
   }
 }

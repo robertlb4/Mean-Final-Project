@@ -11,14 +11,9 @@ import { Router } from '@angular/router';
 })
 export class SignUpComponent implements OnInit {
   
-  constructor(private inputInfo: InputinfoService, private _user: UserService, private router: Router) { }
+  failed: boolean;
   
-  // reginfo: any = {
-  //   firstName: this.inputInfo.user.firstName,
-  //   lastName: this.inputInfo.user.lastName,
-  //   email: this.inputInfo.user.email,
-  //   password: this.inputInfo.user.password
-  // };
+  constructor(private inputInfo: InputinfoService, private _user: UserService, private router: Router) { }
   
   ngOnInit() {
   
@@ -31,6 +26,7 @@ export class SignUpComponent implements OnInit {
       sessionStorage.setItem('token', result.token);
       sessionStorage.setItem('userId', result.userId);
       this.router.navigate(['']);
-    })
+    },
+    error => this.failed=true)
   }
 }

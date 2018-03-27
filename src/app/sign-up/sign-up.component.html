@@ -18,8 +18,9 @@
             <input class="password" type="password" id="password" name="password"
             placeholder="Password"
             [(ngModel)]="inputInfo.user.reginfo.password">
-            <div class="error active">
-                Invalid user name or password
+            <div class="active"
+            [class.error]="failed">
+                Invalid E-mail or password
             </div>
             <button type="submit" class="btn btn-primary"
             (click)="signUp()">Create Account</button>

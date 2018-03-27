@@ -29,10 +29,17 @@ export class HomeComponent {
     
     clickCalc(profile) {
         this.inputInfo.user = profile.profile;
-        console.log(this.inputInfo.user);
         this.calc.calcBenefit(this.inputInfo.user.dob, this.inputInfo.user.ssiAmount, this.inputInfo.user.income, false);
         this.inputInfo.sendChartData();
         this.router.navigate([`/chart`]);
+    }
+    
+    clickDelete(item) {
+        this._user.deleteProfileCards(item.id)
+        .subscribe()
+        this.profile = this.profile.filter(x => x.id !== item.id);
+        console.log(this.profile)
+        
     }
 
 }

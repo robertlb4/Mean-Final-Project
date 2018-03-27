@@ -33,5 +33,12 @@ export class UserService {
     let token = sessionStorage.getItem('token');
     return this._http.get(this.baseUrl + userId + '/ssireturns?access_token=' + token)
   }
+  
+  deleteProfileCards(itemId) {
+    let userId = sessionStorage.getItem('userId');
+    let token = sessionStorage.getItem('token');
+    console.log(itemId);
+    return this._http.delete(this.baseUrl + userId + '/ssireturns/' + itemId + '?access_token=' + token);
+  }
 
 }
