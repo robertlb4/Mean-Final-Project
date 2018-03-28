@@ -1,9 +1,21 @@
+.brand-container {
+  text-align: center;
+}
+
+.branding {
+  width: 360px;
+}
 
 #form {
-  height: 70vh;
+  // height: 50vh;
+  margin-top: 18px;
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+
+#statment {
+  height: 30vh;
 }
 
 .inputQ {
@@ -13,3 +25,4 @@
 #dob, #ssiAmount, #avgIncome, #monthlyBen{
   margin-left: 50px;
 }
+

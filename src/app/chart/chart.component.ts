@@ -32,6 +32,7 @@ export class ChartComponent implements OnInit {
         scaleLabel: {
           display: true,
           labelString: 'Total Amount Earned'
+          fontSize: 20,
         },
         ticks: {
           min: 100
@@ -43,6 +44,7 @@ export class ChartComponent implements OnInit {
         scaleLabel: {
           display: true,
           labelString: "Retirement Age",
+          fontSize: 20,
           // type: 'time',
         },
           ticks: {

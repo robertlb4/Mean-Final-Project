@@ -13,4 +13,9 @@ export class AppComponent {
     constructor(private router: Router, private _user: UserService) {
     }
     
+    logOut() {
+        sessionStorage.clear();
+        this._user.token = null
+        this.router.navigate(['']);
+    }
 }

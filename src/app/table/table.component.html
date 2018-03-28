@@ -18,4 +18,23 @@
         </tr>
     </table>
 </div>
- <button class="btn btn-primary" (click)="clickSave()">Save</button>
+ <button class="btn btn-primary save" (click)="clickSave()">Save</button>
+ <clr-modal [(clrModalOpen)]="saved">
+    <h3 class="modal-title">Succes!</h3>
+    <p>You can now see your saved results on the profile page</p>
+    <div class="modal-body">
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline" (click)="saved = false">Cancel</button>
+        <button type="button" class="btn btn-primary" href="#" [routerLink]="['/test']">Go to profile</button>
+    </div>
+</clr-modal>
+<clr-modal [(clrModalOpen)]="noSave">
+    <h3 class="modal-title">You must log-in to save your results</h3>
+    <div class="modal-body">
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline" (click)="noSave = false">Cancel</button>
+        <button type="button" class="btn btn-primary" href="#" [routerLink]="['/log-in']">Log-in</button>
+    </div>
+</clr-modal>

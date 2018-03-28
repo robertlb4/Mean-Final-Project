@@ -10,7 +10,9 @@ import { UserService } from '../user.service'
 })
 export class TableComponent implements OnInit {
   
+  saved: boolean = false;
   
+  noSave: boolean = false;
 
   constructor(private inputInfo: InputinfoService, private _user: UserService) { }
 
@@ -21,7 +23,12 @@ export class TableComponent implements OnInit {
     let profInfo = { ...this.inputInfo.user };
     delete profInfo.reginfo;
     this._user.saveResult(profInfo)
-    .subscribe(result => console.log(result + " success!"))
+    .subscribe(result => {
+      console.log(result + " success!")
+      return this.saved = true;
+    },
+    error => this.noSave = true)
+    
   }
 //{dob: this.inputInfo.user.dob, income: this.inputInfo.user.income, ssiAmount: this.inputInfo.user.ssiAmount, monthlybenefit: this.inputInfo.user.monthlyBen}
 }

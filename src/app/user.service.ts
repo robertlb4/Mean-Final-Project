@@ -9,7 +9,7 @@ export class UserService {
     
     baseUrl: string = "http://robert-spring-2018-phortonssf.c9users.io:8080/api/appUsers/";
     
-    token: any = sessionStorage.getItem('token');
+    token: any = sessionStorage.getItem('token')
     
   constructor(private _http: HttpClient) { }
   

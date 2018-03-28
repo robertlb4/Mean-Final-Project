@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class InputFormComponent implements OnInit {
   
-  
+  basic: boolean = this._user.token ? false : true
   
   statementQ: boolean = true;
   
