@@ -1,10 +1,3 @@
-.brand-container {
-  text-align: center;
-}
-
-.branding {
-  width: 360px;
-}
 
 #form {
   // height: 50vh;
@@ -26,3 +19,29 @@
   margin-left: 50px;
 }
 
+.branding {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("http://icons.iconarchive.com/icons/flat-icons.com/flat/512/Beer-icon.png");
+    background-size: 350px 350px;
+    background-repeat: no-repeat;
+    width: 350px;
+    height: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 360px;
+    text-align: center;
+}
+
+.slogan {
+  color: white;
+  padding-top: 75px;
+}
+
+
+// img {
+//   background: linear-gradient(
+//       rgba(0, 0, 0, 0.5),
+//       rgba(0, 0, 0, 0.5)
+//     ),
+//     radius
+// }

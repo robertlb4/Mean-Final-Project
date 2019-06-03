@@ -1,23 +1,23 @@
 <clr-modal [(clrModalOpen)]="basic">
-    <h3 class="modal-title">Register to save your results!</h3>
+    <h3 class="modal-title">Log-in to save your results!</h3>
     <div class="modal-body">
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-outline" (click)="basic = false">Cancel</button>
-        <button type="button" class="btn btn-primary" href="#" [routerLink]="['/sign-up']">Ok</button>
+        <button type="button" class="btn btn-primary" href="#" [routerLink]="['/log-in']">Ok</button>
     </div>
 </clr-modal>
 
-<div class="brand-container">
-    <img class="branding" src="http://icons.iconarchive.com/icons/flat-icons.com/flat/512/Beer-icon.png">
-</div>
-<div  *ngIf="statementQ" id ="form">
+<!--<div class="brand-container branding">-->
+     <h1 class ="slogan brand-container branding">Because it's Retirement O'clock Somewhere</h1>
+<!--</div>-->
+<div  *ngIf="inputInfo.statementQ" id ="form">
     <form #haveInfo="ngForm">
         <section class="form-block">
             <div class="form-group">
                 <label>Do you have your <a href="https://www.ssa.gov/myaccount/statement.html">Social Security Statement?</a></label>
                 <div class="radio-inline">
-                <input type="radio" name="gridRadios1" id="checkrads_11 statement" 
+                <input type="radio" name="gridRadios1" id="checkrads_11" 
                 (click)="statementYes()">
                 <label for="checkrads_11">Yes</label>
                 </div>
@@ -31,7 +31,7 @@
     </form>
 </div>
 
-<div id="form" *ngIf="!statementQ">
+<div id="form" *ngIf="!inputInfo.statementQ">
 <form #inputForm="ngForm">
     <section class="form-block">
         <label>Please enter your information</label>
@@ -76,7 +76,7 @@
                 </span>
             </label>
         </div>
-        <div class="form-group" *ngIf="!statement">
+        <div class="form-group" *ngIf="!inputInfo.statement">
             <label class="inputQ" for="avgIncome">Average Yearly Income
             <clr-signpost>
                     <clr-signpost-content *clrIfOpen="openState">
@@ -100,7 +100,7 @@
                 </span>
             </label>
         </div>
-        <div class="form-group" *ngIf="statement">
+        <div class="form-group" *ngIf="inputInfo.statement">
             <label class="inputQ" for="monthlyBen">Your Monthly Payment(from top of statement)</label>
             <label for="monthlyBen"
                 aria-haspopup="true"

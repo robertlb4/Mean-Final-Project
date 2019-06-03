@@ -31,11 +31,12 @@ export class ChartComponent implements OnInit {
       yAxes: [{
         scaleLabel: {
           display: true,
-          labelString: 'Total Amount Earned'
-          fontSize: 20,
+          labelString: 'Total Amount Earned',
+          fontSize: 24,
         },
         ticks: {
-          min: 100
+          min: 10000,
+          fontSize: 16,
         }
       }],
       
@@ -44,14 +45,23 @@ export class ChartComponent implements OnInit {
         scaleLabel: {
           display: true,
           labelString: "Retirement Age",
-          fontSize: 20,
+          fontSize: 24,
           // type: 'time',
         },
           ticks: {
             autoSkip: true,
-            maxTicksLimit: 7
+            maxTicksLimit: 7,
+            fontSize: 18,
           }
     }]   
+  },
+  legend: {
+    labels: {
+      usePointStyle: true,
+      padding: 20,
+      fontSize: 18,
+    }
+    
   }
   };
   public lineChartColors:Array<any> = [

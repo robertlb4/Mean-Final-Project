@@ -22,13 +22,13 @@ export class InputFormComponent implements OnInit {
   constructor(private inputInfo: InputinfoService, private calc: CalculateService, private router: Router, private _user: UserService) { }
   
   statementYes() {
-    this.statement = true;
-    this.statementQ = false;
+    this.inputInfo.statement = true;
+    this.inputInfo.statementQ = false;
   }
   
   statementNo() {
-    this.statement = false;
-    this.statementQ = false;
+    this.inputInfo.statement = false;
+    this.inputInfo.statementQ = false;
   }
   
   onClickCalc(): void {

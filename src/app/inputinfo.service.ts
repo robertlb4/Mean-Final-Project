@@ -5,6 +5,10 @@ import { Observable} from 'rxjs/Observable';
 @Injectable()
 export class InputinfoService {
   
+   statementQ: boolean = true;
+   
+   statement: boolean;
+  
   startAge = [62, 63, 64, 65, 66, 67, 68, 69, 70];
   
   chartXAxis: any[] = []
